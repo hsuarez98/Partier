@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "349185593547",
+    "firebase_url": "https://partier-fa8c5-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "partier-fa8c5",
+    "storage_bucket": "partier-fa8c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349185593547:android:22c5a31f2ae76ba78b4b4e",
+        "android_client_info": {
+          "package_name": "com.example.partier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349185593547-033n7tfcrg18spa08ckp7smg5afn8396.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjfFsCEHxNlAXmM_ecZqBjEDJHTDhnftE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "349185593547-033n7tfcrg18spa08ckp7smg5afn8396.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

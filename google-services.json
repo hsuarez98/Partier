@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "222653060621",
+    "project_id": "partier-c215e",
+    "storage_bucket": "partier-c215e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222653060621:android:d4f04a064777638dec2744",
+        "android_client_info": {
+          "package_name": "com.example.partier"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222653060621-lopv96am35u6u5s55kjt89njeljopdqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9TR9oos5v7O7SXhO-WqfZYfhrCJbX0kM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222653060621-lopv96am35u6u5s55kjt89njeljopdqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

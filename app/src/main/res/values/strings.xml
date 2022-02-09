@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Partier</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="signup_btn">Registrar</string>
+    <string name="login_btn">Acceder</string>
+    <string name="lugarFiesta">Discoteca</string>
+    <string name="ciudadSalida">Ciudad de donde sales</string>
+    <string name="provincia">Provincia Discoteca</string>
+    <string name="horaSalida">Hora Salida</string>
+    <string name="numPersonas">Numero de sitios disponibles</string>
+    <string name="precioGasolina">Aporte de dinero para gasolina</string>
+    <string name="request_login">Este correo ya esta registrado,quieres iniciar sesion?</string>
+    <string name="request_message">Deseas inciar una conversación con este usuario?</string>
+    <string name="request_log_out">Deseas cerrar sesión?</string>
+</resources>
