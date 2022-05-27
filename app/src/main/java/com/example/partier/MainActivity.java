@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     String idChat1, idChat2;
     EventoAdapter adapter;
 
-    // A banner ad is placed in every 8th position in the RecyclerView.
+    // A banner ad is placed in every 4th position in the RecyclerView.
     public static final int ITEMS_PER_AD = 4;
 
     // OFICIAL PUBLICAR // private static final String AD_UNIT_ID = "ca-app-pub-9024271567416953/1626558854";
@@ -83,23 +83,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         frontLayout = findViewById(R.id.front_layout);
         backLayout = findViewById(R.id.back_layout);
         backLayout2 = findViewById(R.id.back_layout2);
-
-        //Obtener eventos i llenar lista
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                getDatosFirebase(snapshot);
-                addBannerAds();
-                loadBannerAds();
-                adapter = new EventoAdapter(MainActivity.this, listaEventos);
-                listView.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         //Iniciar chat
         listView.setOnItemClickListener((adapterView, view, i, l) -> {
@@ -144,6 +127,27 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         });
 
         //adapter.filtrar(comunitySearch.getText().toString(),eventSearch.getText().toString(),citySearch.getText().toString());
+    }
+
+    public void onStart() {
+        super.onStart();
+
+        //Obtener eventos i llenar lista
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                getDatosFirebase(snapshot);
+                addBannerAds();
+                loadBannerAds();
+                adapter = new EventoAdapter(MainActivity.this, listaEventos);
+                listView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         //// scroll lista main filtros /////
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -152,13 +156,22 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+                if (listView.getFirstVisiblePosition() == 0 && listView.getChildAt(0).getTop() >= 0)
+                {
+                    //It is scrolled all the way up here
+                    dropLayoutUp();
+                }else{
+                    //It is scrolled all the way down here
+                    dropLayoutDown();
+                }
             }
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem,
                                  int visibleItemCount, int totalItemCount) {
 
-                if (mLastFirstVisibleItem < firstVisibleItem) {
+                /*if (mLastFirstVisibleItem < firstVisibleItem) {
                     // Scrolling down
                     dropLayoutDown();
                 }
@@ -166,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     // scrolling up
                     dropLayoutUp();
                 }
-                mLastFirstVisibleItem = firstVisibleItem;
+                mLastFirstVisibleItem = firstVisibleItem;*/
             }
         });
     }
@@ -180,9 +193,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         backLayout.setVisibility(View.VISIBLE);
         backLayout2.setVisibility(View.GONE);
     }
-    //// scroll lista main filtros /////
 
-
+    //region Filtros
     @Override
     public boolean onQueryTextSubmit(String query) {
         adapter.filtrar(query);
@@ -194,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         adapter.filtrar(textSearch);
         return false;
     }
-    ///* CardVIew Filtros *///
+    //endregion Filtros
 
     @Override
     protected void onResume() {
@@ -229,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onDestroy();
     }
 
-    ///  ADS ///
+    //region ADS
 
     /**
      * Adds banner ads to the items list.
@@ -305,9 +317,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         // Load the banner ad.
         adView.loadAd(new AdRequest.Builder().build());
     }
-    ///* ADS *///
+    //endregion ADS
 
-    /// FATOS FIREBASE ///
+    //region DATOS FIREBASE
     public void getDatosFirebase(@NonNull DataSnapshot snapshot) {
         int i = 0;
         for (DataSnapshot ds : snapshot.getChildren()) {
@@ -319,8 +331,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             i++;
         }
     }
+    //endregion DATOS FIREBASE
 
-    //Acciones iconos app bar
+    //region Acciones iconos app bar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -373,4 +386,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
         return true;
     }
+
+    //endregion Acciones iconos app bar
 }
