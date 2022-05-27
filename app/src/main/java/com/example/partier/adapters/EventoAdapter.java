@@ -42,7 +42,7 @@ public class EventoAdapter extends ArrayAdapter {
             TextView txtNumPersonas = item.findViewById(R.id.txtNumPersonas);
             TextView txtPrecioGasolina = item.findViewById(R.id.txtPrecioGasolina);
 
-            Evento evento = (Evento) listaEventos.get(position);
+            evento = (Evento) listaEventos.get(position);
             txtLugarfiesta.setText(evento.getLugarFiesta());
             txtCiudadSalida.setText("Ciudad de salida:\n" + evento.getCiudadSalida());
             txtHoraSalida.setText(String.valueOf("Hora de salida:\n" + evento.getHoraSalida()));
@@ -80,7 +80,7 @@ public class EventoAdapter extends ArrayAdapter {
                     String hora = ((Evento) listaEventos.get(i)).getHoraSalida();
                     int gasolina = ((Evento) listaEventos.get(i)).getPrecioGasolina();
 
-                    Evento evento = new Evento(id, user, userId, lugar, ciudadSalida, provincia, hora, numPersonas, gasolina);
+                    evento = new Evento(id, user, userId, lugar, ciudadSalida, provincia, hora, numPersonas, gasolina);
                     eventos.add(evento);
                 }
             }
@@ -126,7 +126,7 @@ public class EventoAdapter extends ArrayAdapter {
                     String hora = ((Evento) listaEventos.get(i)).getHoraSalida();
                     int gasolina = ((Evento) listaEventos.get(i)).getPrecioGasolina();
 
-                    Evento evento = new Evento(id, user, userId, lugar, ciudadSalida, provincia, hora, numPersonas, gasolina);
+                    evento = new Evento(id, user, userId, lugar, ciudadSalida, provincia, hora, numPersonas, gasolina);
                     eventos.add(evento);
                 }
             }
@@ -172,7 +172,7 @@ public class EventoAdapter extends ArrayAdapter {
                     String hora = ((Evento) listaEventos.get(i)).getHoraSalida();
                     int gasolina = ((Evento) listaEventos.get(i)).getPrecioGasolina();
 
-                    Evento evento = new Evento(id, user, userId, lugar, ciudadSalida, provincia, hora, numPersonas, gasolina);
+                    evento = new Evento(id, user, userId, lugar, ciudadSalida, provincia, hora, numPersonas, gasolina);
                     eventos.add(evento);
                 }
             }
